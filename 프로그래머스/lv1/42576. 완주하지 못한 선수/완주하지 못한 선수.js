@@ -1,16 +1,16 @@
-
 function solution(participant, completion) {
-  const myMap = new Map();
-  for (let i = 0; i < participant.length; i++) {
-    if (!myMap.has(participant[i])) {
-      myMap.set(participant[i], 1);
+  const myMap = new Map()
+  for (let par of participant) {
+    if (!myMap.has(par)) {
+      myMap.set(par, 1)
     } else {
-      myMap.set(participant[i], myMap.get(participant[i]) + 1)
+      myMap.set(par, myMap.get(par) + 1)
     }
   }
-
-  for (com of completion) {
-    myMap.set(com, myMap.get(com) - 1)
+  for (let com of completion) {
+    if (myMap.has(com)) {
+      myMap.set(com, myMap.get(com) - 1)
+    }
   }
   for (const key of myMap.keys()) {
     if (myMap.get(key) === 1) {
