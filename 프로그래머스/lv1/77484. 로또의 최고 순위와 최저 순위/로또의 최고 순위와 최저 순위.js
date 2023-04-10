@@ -1,12 +1,8 @@
 function solution(lottos, win_nums) {
 
-  let result = 0
+  let result = lottos.filter((a) => win_nums.includes(a)).length
   let number = lottos.filter((a) => a === 0).length
-  for (let i = 0; i < 6; i++) {
-    if (win_nums.includes(lottos[i])) {
-      result++
-    }
-  }
+
 
   let fun = (result) => {
     switch (result) {
