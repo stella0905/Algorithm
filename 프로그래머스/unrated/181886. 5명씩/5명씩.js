@@ -1,7 +1,11 @@
 function solution(names) {
-  const arr = []
-  for (let i = 0; i < names.length; i += 5) {
-    arr.push(names[i])
+  const chunked = []
+  let index = 0
+
+  while (index < names.length) {
+    chunked.push(names.slice(index, index + 5))
+    index += 5
   }
-  return arr;
+
+  return chunked.map((chunk) => chunk[0]);
 }
