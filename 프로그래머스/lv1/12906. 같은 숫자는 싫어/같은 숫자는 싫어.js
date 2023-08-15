@@ -1,9 +1,11 @@
 function solution(arr) {
-  let result = [arr[0]]
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] !== arr[i - 1]) {
-      result.push(arr[i])
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (newArr[newArr.length - 1] !== arr[i]) {
+      newArr.push(arr[i]);
     }
   }
-  return result;
+  return newArr;
 }
+
+console.log(solution([1, 1, 3, 3, 0, 1, 1]));
