@@ -1,27 +1,23 @@
 function solution(num_list) {
-
-  let count = 0
-  for (num of num_list) {
-    let result = num
-
-    while (result !== 1) {
-
-      if (result % 2 === 0) {
-        result = result / 2
-
-
-      } else {
-        result = (result - 1) / 2
-      }
-      count++
-
-      if (result === 3 || result === 2) {
-        count++;
-        break
-      }
-    }
+  let count = 0;
+  for (let i = 0; i < num_list.length; i++) {
+    count += division(num_list[i]);
   }
-
-  return count
+  return count;
 }
-console.log(solution([12, 4, 15, 1, 14]))
+
+function division(num) {
+  let remaining = num;
+
+  let count = 0;
+  while (remaining > 1) {
+    if (remaining % 2 === 0) {
+      remaining = remaining / 2;
+    } else {
+      remaining = (remaining - 1) / 2;
+    }
+    console.log(remaining);
+    count++;
+  }
+  return count;
+}
