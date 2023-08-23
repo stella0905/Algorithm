@@ -1,11 +1,14 @@
 function solution(sizes) {
-  let minArr = []
-  let maxArr = []
+  let maxArr = [];
+  let minArr = [];
   for (let i = 0; i < sizes.length; i++) {
-    let arr = sizes[i].sort((a, b) => a - b)
-    minArr.push(arr[0])
-    maxArr.push(arr[1])
+    if (sizes[i][0] >= sizes[i][1]) {
+      maxArr.push(sizes[i][0]);
+      minArr.push(sizes[i][1]);
+    } else {
+      maxArr.push(sizes[i][1]);
+      minArr.push(sizes[i][0]);
+    }
   }
-
-  return Math.max(...minArr) * Math.max(...maxArr);
+  return Math.max(...maxArr) * Math.max(...minArr);
 }
